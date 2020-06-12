@@ -1,5 +1,5 @@
 package com.example.carl.ui_filter;
 
 public abstract class MenuObserver {
-    public abstract void closeMenu();
+    public abstract void observerCloseMenu();
 }

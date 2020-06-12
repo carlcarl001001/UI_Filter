@@ -96,13 +96,13 @@ public class ListDataFilterView extends LinearLayout implements View.OnClickList
     public void setAdapter(BaseMenuAdapter adapter){
             //观察者 用户
             if (mAdapter!=null&&mMenuObserver!=null){
-                mAdapter.unregisterDataSetObsever(mMenuObserver);
+                mAdapter.unregisterDataSetObserver();
             }
 
             this.mAdapter = adapter;
             //注册观察者 具体的观察者实例对象 订阅
             mMenuObserver = new AdapterMenuObserver();
-            mAdapter.registerDataSetObsever(mMenuObserver);
+            mAdapter.registerDataSetObserver(mMenuObserver);
             int count = mAdapter.getCount();
             for (int i=0;i<count;i++){
                 View tabView = mAdapter.getTabView(i,mMenuTabView);
@@ -225,9 +225,9 @@ public class ListDataFilterView extends LinearLayout implements View.OnClickList
     private class AdapterMenuObserver extends MenuObserver{
 
         @Override
-        public void closeMenu() {
+        public void observerCloseMenu() {
             //如果有注册就会收到通知
-            log("into AdapterMenuObserver closeMenu");
+            log("into AdapterMenuObserver observerCloseMenu");
             ListDataFilterView.this.closeMenu();
         }
     }

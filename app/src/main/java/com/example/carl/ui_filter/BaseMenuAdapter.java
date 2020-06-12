@@ -1,6 +1,5 @@
 package com.example.carl.ui_filter;
 
-import android.database.DataSetObserver;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -9,16 +8,16 @@ import android.view.ViewGroup;
 * */
 public abstract class BaseMenuAdapter {
     private MenuObserver mObserver;
-    public void registerDataSetObsever(MenuObserver observer){
+    public void registerDataSetObserver(MenuObserver observer){
         mObserver = observer;
     }
-    public void unregisterDataSetObsever(MenuObserver observer){
+    public void unregisterDataSetObserver(){
         mObserver=null;
     }
 
     public void closeMenu(){
         if (mObserver!=null){
-            mObserver.closeMenu();
+            mObserver.observerCloseMenu();
         }
     }
 
